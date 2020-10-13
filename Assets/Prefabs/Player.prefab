@@ -42,10 +42,10 @@ GameObject:
   - component: {fileID: 6136947617202579690}
   - component: {fileID: 6136947617202579689}
   - component: {fileID: 6136947617202579688}
-  - component: {fileID: 6136947617202579684}
+  - component: {fileID: 6168148846880881001}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 100
---- !u!114 &6136947617202579684
+--- !u!114 &6168148846880881001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,11 +158,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6136947617202579695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be81bbb84e017048ac0d2b30e878eea, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f0961e3a8501d04bbd230fce5e70e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 9042454891861972262, guid: 9509cc75c120ff049840484788e052b6, type: 3}
-  spawnPoint: {fileID: 6136947616814063866}
-  player: {fileID: 6136947617202579695}
-  ennemy: {fileID: 8063882296138825988, guid: 56ff69cc07b7e3b438e3aeee54179ee4, type: 3}
-  bulletEnnemySpawn: {fileID: 6136947617202579691}
+  player: {fileID: 6136947617202579691}
+  enemy: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  bulletEnnemySpawn: {fileID: 0}

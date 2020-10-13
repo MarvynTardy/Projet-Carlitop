@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ShootMovement : MonoBehaviour
 {
-    [SerializeField] public GameObject player;
+    
     public float speed = 10f;
     Transform bulletTransform;
     bool isMoving;
-    
+
 
     Vector3 wantedDir;
     void Start()
@@ -21,11 +21,11 @@ public class ShootMovement : MonoBehaviour
     {
         if (isMoving) Shoot(wantedDir);
     }
-   public void Shoot(Vector3 shootDirection)
+    public void Shoot(Vector3 shootDirection)
     {
+
+        transform.Translate(shootDirection * Time.deltaTime * speed);
         
-       transform.Translate(shootDirection * Time.deltaTime * speed);
-       // transform.Translate(player.transform.position * Time.deltaTime * speed);
     }
 
     public void SetDir(Vector3 shootDir)
@@ -33,4 +33,5 @@ public class ShootMovement : MonoBehaviour
         isMoving = true;
         wantedDir = shootDir;
     }
+
 }

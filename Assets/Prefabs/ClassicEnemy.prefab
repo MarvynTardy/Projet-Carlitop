@@ -42,10 +42,10 @@ GameObject:
   - component: {fileID: -2707170942897127721}
   - component: {fileID: 2230539981407463472}
   - component: {fileID: 3152874672815004817}
-  - component: {fileID: -1227471392712284208}
+  - component: {fileID: 4239789531066525708}
   m_Layer: 0
-  m_Name: ennemyClassique
-  m_TagString: Untagged
+  m_Name: ClassicEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.44}
   m_EdgeRadius: 0
---- !u!114 &-1227471392712284208
+--- !u!114 &4239789531066525708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,11 +163,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8063882296138825988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be81bbb84e017048ac0d2b30e878eea, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f0961e3a8501d04bbd230fce5e70e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 9042454891861972262, guid: 9509cc75c120ff049840484788e052b6, type: 3}
+  player: {fileID: 0}
+  enemy: {fileID: 8109074806800364956}
   spawnPoint: {fileID: 0}
-  player: {fileID: 6136947617202579695, guid: 1c1149310df0f354aaac9d5731a8f04b, type: 3}
-  ennemy: {fileID: 8063882296138825988}
-  bulletEnnemySpawn: {fileID: 2162585129184158215}
+  bulletEnnemySpawn: {fileID: 0}
