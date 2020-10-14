@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2162585129184158215}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bulletspawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2230539981407463472}
   - component: {fileID: 3152874672815004817}
   - component: {fileID: 4239789531066525708}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ClassicEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -169,5 +169,6 @@ MonoBehaviour:
   bullet: {fileID: 9042454891861972262, guid: 9509cc75c120ff049840484788e052b6, type: 3}
   player: {fileID: 0}
   enemy: {fileID: 8109074806800364956}
-  spawnPoint: {fileID: 0}
-  bulletEnnemySpawn: {fileID: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 256

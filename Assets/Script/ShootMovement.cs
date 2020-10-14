@@ -20,6 +20,16 @@ public class ShootMovement : MonoBehaviour
     void Update()
     {
         if (isMoving) Shoot(wantedDir);
+
+
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+
+        if (transform.position.y < min.y || transform.position.y > max.y)
+        {
+            Destroy(gameObject);
+        }
+
     }
     public void Shoot(Vector3 shootDirection)
     {
@@ -33,5 +43,17 @@ public class ShootMovement : MonoBehaviour
         isMoving = true;
         wantedDir = shootDir;
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+        
+        
+    //        if (collision.gameObject.tag == "Enemy")
+    //        {
+
+    //            Destroy(this.gameObject);
+    //        }
+        
+    //}
 
 }
