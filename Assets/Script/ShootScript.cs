@@ -12,7 +12,7 @@ public class ShootScript : MonoBehaviour
     [SerializeField]
     private Transform enemy;
     private float currentTimeBeforeEnemyShoot = 0f;
-    private float timeBeforeEnemyShoot = 2.0f;
+    private float timeBeforeEnemyShoot = 1.0f;
    
 
    
