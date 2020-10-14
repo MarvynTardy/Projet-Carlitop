@@ -13,7 +13,9 @@ public class ShootScript : MonoBehaviour
     private Transform enemy;
     private float currentTimeBeforeEnemyShoot = 0f;
     private float timeBeforeEnemyShoot = 1.0f;
-   
+
+    public LayerMask mask;
+    
 
    
 
@@ -28,6 +30,15 @@ public class ShootScript : MonoBehaviour
     {
 
         Shoot();
+
+        foreach (Collider2D colision in Physics2D.OverlapCircleAll(transform.position, 0.1f, mask))
+        {
+            if (colision.CompareTag("Bullet"))
+            {
+                Destroy(colision.gameObject);
+            }
+        }
+
     }
     void Shoot()
     {
@@ -36,10 +47,10 @@ public class ShootScript : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 GameObject bullet1 = Instantiate(bullet, player.position, Quaternion.identity);
+                bullet.layer = gameObject.layer;
 
                 bullet1.GetComponent<ShootMovement>().SetDir(Vector3.up);
-
-
+               
             }
         }
         else if (gameObject.tag == "Enemy")
@@ -53,6 +64,7 @@ public class ShootScript : MonoBehaviour
             {
                 Debug.Log("Shoot");
                 GameObject bullet1 = Instantiate(bullet, enemy.position, Quaternion.identity);
+                bullet.layer = gameObject.layer;
                 bullet1.GetComponent<ShootMovement>().SetDir(Vector3.down);
                 currentTimeBeforeEnemyShoot = 0;
 
@@ -68,8 +80,11 @@ public class ShootScript : MonoBehaviour
 
 
 
+
     }
 
+
+  
 
 
 }
