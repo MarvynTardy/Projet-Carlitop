@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraShake : MonoBehaviour
 {
     bool IsShaking = false;
-
    
+
     public void  Shake( float forceShake)
     {
         {
@@ -16,17 +16,18 @@ public class CameraShake : MonoBehaviour
 
 
 
-            float x = Random.Range(-1f, 1f) * forceShake;
-            float y = Random.Range(-1f, 1f) * forceShake;
+            float x = Random.Range(-0.3f, 0.3f) * forceShake;
+            float y = Random.Range(-0.3f, 0.3f) * forceShake;
 
             transform.localPosition = new Vector3(x, y, originalPos.z);
             
             elapsed += Time.deltaTime;
+          
         }
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey    (KeyCode.LeftShift))
         {
             Dash();
         }
@@ -44,6 +45,7 @@ public class CameraShake : MonoBehaviour
         else
         {
             Time.timeScale = 1;
+
             
         }
 

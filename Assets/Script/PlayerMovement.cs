@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public string axis;
+    
     public float speed = 3;
     private Transform playerTransform;
     private int accelerationTime = 3;
@@ -16,8 +16,10 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+   
     void Start()
     {
+        
         playerTransform = GetComponent<Transform>();
     }
 
@@ -26,11 +28,13 @@ public class PlayerMovement : MonoBehaviour
     {
 
 
-        Vector3 Movement = Vector3.right * Input.GetAxisRaw(axis) * speed * Time.deltaTime;
-        transform.Translate(Movement);
+        Vector3 movementX = Vector3.right * Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
+        transform.Translate(movementX);
 
-        
-       
+        Vector3 movementY = Vector3.up * Input.GetAxisRaw("Vertical") * speed * Time.deltaTime;
+        transform.Translate(movementY);
+
+
 
 
 
@@ -43,7 +47,11 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    
 
-    
+
+
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        direction = (mousePosition - transform.position).normalized;
+        rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
+    }
 }
