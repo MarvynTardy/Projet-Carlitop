@@ -5,8 +5,20 @@ using UnityEngine;
 public class CameraShake : MonoBehaviour
 {
     bool IsShaking = false;
+    [SerializeField]
+    public float m_Stamina = 3;
+    [SerializeField]
+    private float m_Cooldown = 2;
+    [SerializeField]
+    private float m_CurrentCooldown;
+
    
 
+
+    private void Start()
+    {
+        m_CurrentCooldown = m_Cooldown;
+    }
     public void  Shake( float forceShake)
     {
         {
@@ -27,13 +39,20 @@ public class CameraShake : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey    (KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && (m_Stamina >= 0) && (m_CurrentCooldown >= m_Cooldown))
         {
+           
             Dash();
         }
         else
         {
             IsShaking = false;
+            if (m_Stamina < 3)
+            {
+
+                m_Stamina += 0.1f * Time.deltaTime;
+
+            }
         }
         
 
@@ -48,6 +67,16 @@ public class CameraShake : MonoBehaviour
 
             
         }
+        if(m_Stamina <= 0)
+        {
+            m_CurrentCooldown = 0;
+           
+            
+        }
+        if (m_CurrentCooldown < m_Cooldown)
+        {
+            m_CurrentCooldown += 1f * Time.deltaTime;
+        }
 
 
 
@@ -55,9 +84,12 @@ public class CameraShake : MonoBehaviour
     void Dash()
     {
         IsShaking = true;
-
+        m_Stamina -= 0.1f * Time.deltaTime;
+        
 
     }
+
+    
 }
      
     
