@@ -50,8 +50,8 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+       /* mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = (mousePosition - transform.position).normalized;
-        rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
-    }
+        rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);*/
+    
 }
