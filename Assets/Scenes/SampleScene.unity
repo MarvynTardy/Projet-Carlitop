@@ -1226,6 +1226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ennemy1: {fileID: 8063882296138825988, guid: 56ff69cc07b7e3b438e3aeee54179ee4, type: 3}
+  ennemy2: {fileID: 7760721719260910176, guid: 43f0fb13012e5bf4baee9d0f3e8de686, type: 3}
+  ennemy3: {fileID: 2025250194237881232, guid: 455ee804a261a544ab16d138dd5f9a95, type: 3}
   spawnRate: 5
 --- !u!4 &1408072365
 Transform:
@@ -1480,3 +1482,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f66d0ef971dacc45acc3716d71e31fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorePerSec: 0
