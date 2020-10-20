@@ -5,21 +5,22 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    
+
     public float speed = 3;
     private Transform playerTransform;
     private int accelerationTime = 3;
     public CameraShake cameraShake;
     bool IsShaking;
-
-   
-
+    public LayerMask mask;
 
 
-   
+
+
+
+
     void Start()
     {
-        
+
         playerTransform = GetComponent<Transform>();
     }
 
@@ -35,6 +36,12 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(movementY);
 
 
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            
+            
+           GetComponent<HealthComponent>().TakeDamage(30);
+            
 
 
 
@@ -43,9 +50,9 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
-
+        }
     }
+}
 
 
 
@@ -54,4 +61,4 @@ public class PlayerMovement : MonoBehaviour
         direction = (mousePosition - transform.position).normalized;
         rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);*/
     
-}
+

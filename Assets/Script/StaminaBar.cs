@@ -11,7 +11,7 @@ public class StaminaBar : MonoBehaviour
 
     private void Start()
     {
-        
+        slider.value = cameraShake.m_Stamina;
     }
 
     public void SetStamina(float _CurrentStamina)

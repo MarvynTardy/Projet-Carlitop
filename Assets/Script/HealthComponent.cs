@@ -6,8 +6,9 @@ public class HealthComponent : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public HealthBar healthBar;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentHealth = maxHealth;
     }
@@ -20,9 +21,10 @@ public class HealthComponent : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+     public void TakeDamage(int damage)
     {
-        currentHealth -= damage; 
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
     }
 
     void Heal(int heal)
