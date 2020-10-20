@@ -6,6 +6,7 @@ public class EnnemyMovement : MonoBehaviour
 {
 
     public float speed;
+    public LayerMask mask;
     
     void Start()
     {

@@ -2,34 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class healthManager : MonoBehaviour
+public class HealthComponent : MonoBehaviour
 {
-
     public int maxHealth = 100;
     public int currentHealth;
-
     public HealthBar healthBar;
-
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(currentHealth <= 0)
         {
-            TakeDamage(20);
+            Die();
         }
     }
 
-    void TakeDamage(int damage)
+     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
         healthBar.SetHealth(currentHealth);
+    }
+
+    void Heal(int heal)
+    {
+        currentHealth = +heal;
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }

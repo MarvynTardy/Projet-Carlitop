@@ -30,7 +30,7 @@ public class ShootScript : MonoBehaviour
     private void Awake()
     {
         shootMov = FindObjectOfType<ShootMovement>();
-        
+
 
 
     }
@@ -41,11 +41,12 @@ public class ShootScript : MonoBehaviour
 
         foreach (Collider2D colision in Physics2D.OverlapCircleAll(transform.position, 0.1f, mask))
         {
+
             if (colision.CompareTag("Bullet"))
             {
+
                 Destroy(colision.gameObject);
             }
-        }
 
     }
     void Shoot()
@@ -74,16 +75,31 @@ public class ShootScript : MonoBehaviour
         {
             if (currentTimeBeforeEnemyShoot < timeBeforeEnemyShoot)
             {
-                currentTimeBeforeEnemyShoot += Time.deltaTime;
-                Debug.Log("Ok");
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    GameObject bullet1 = Instantiate(bullet, player.position, Quaternion.identity);
+                    bullet.layer = gameObject.layer;
+
+                    bullet1.GetComponent<ShootMovement>().SetDir(Vector3.up);
+
+                }
             }
-            else
+            else if (gameObject.tag == "Enemy")
             {
-                Debug.Log("Shoot");
-                GameObject bullet1 = Instantiate(bullet, enemy.position, Quaternion.identity);
-                bullet.layer = gameObject.layer;
-                bullet1.GetComponent<ShootMovement>().SetDir(Vector3.down);
-                currentTimeBeforeEnemyShoot = 0;
+                if (currentTimeBeforeEnemyShoot < timeBeforeEnemyShoot)
+                {
+                    currentTimeBeforeEnemyShoot += Time.deltaTime;
+                    Debug.Log("Ok");
+                }
+                else
+                {
+                    Debug.Log("Shoot");
+                    GameObject bullet1 = Instantiate(bullet, enemy.position, Quaternion.identity);
+                    bullet.layer = gameObject.layer;
+                    bullet1.GetComponent<ShootMovement>().SetDir(Vector3.down);
+                    currentTimeBeforeEnemyShoot = 0;
+
+                }
 
             }
 
@@ -143,11 +159,13 @@ public class ShootScript : MonoBehaviour
 
 
 
+        }
     }
+}
 
 
   
 
 
-}
+
 

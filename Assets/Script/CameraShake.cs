@@ -12,11 +12,14 @@ public class CameraShake : MonoBehaviour
     [SerializeField]
     private float m_CurrentCooldown;
 
+    public StaminaBar staminaBar;
+
    
 
 
     private void Start()
     {
+        
         m_CurrentCooldown = m_Cooldown;
     }
     public void  Shake( float forceShake)
@@ -54,7 +57,7 @@ public class CameraShake : MonoBehaviour
 
             }
         }
-        
+        staminaBar.SetStamina(m_Stamina);
 
         if (IsShaking)
         {
@@ -85,7 +88,7 @@ public class CameraShake : MonoBehaviour
     {
         IsShaking = true;
         m_Stamina -= 0.1f * Time.deltaTime;
-        
+        staminaBar.SetStamina(m_Stamina);
 
     }
 
