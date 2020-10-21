@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ShootScript : MonoBehaviour
 {
@@ -9,10 +11,12 @@ public class ShootScript : MonoBehaviour
     private ShootMovement shootMov;
     [SerializeField]
     private Transform shooter;
-   
+    
     
     private float currentTimeBeforeEnemyShoot = 1.5f;
     private float timeBeforeEnemyShoot = 2f;
+
+
 
     public LayerMask mask;
 
@@ -28,8 +32,7 @@ public class ShootScript : MonoBehaviour
     float angle7 = -5f;
 
 
-
-
+    
 
     private void Awake()
     {
@@ -43,32 +46,49 @@ public class ShootScript : MonoBehaviour
 
         Shoot();
 
-        foreach (Collider2D colision in Physics2D.OverlapCircleAll(transform.position, 0.1f, mask))
+        foreach (Collider2D colision in Physics2D.OverlapCircleAll(transform.position, 0.02f, mask))
         {
 
             if (colision.CompareTag("Bullet"))
             {
+               GetComponent<HealthComponent>().TakeDamage(20);
 
                 Destroy(colision.gameObject);
             }
 
-    }
-    void Shoot()
-    {
-       
-        if (gameObject.tag == "Player")
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                GameObject bullet1 = Instantiate(bullet, shooter.position, Quaternion.identity);
-                
 
-                bullet.layer = gameObject.layer;
-               
-                bullet1.GetComponent<ShootMovement>().SetDir(Vector3.up);
-            }
-            else if (Input.GetButtonDown("Fire2"))
+        }
+
+    }
+
+      
+    
+    
+    
+    
+    
+    
+    
+    
+        void Shoot()
+        {
+
+            if (gameObject.tag == "Player")
+            {
+                if (Input.GetButtonDown("Fire1"))
                 {
+                    GameObject bullet1 = Instantiate(bullet, shooter.position, Quaternion.identity);
+                    bullet1.GetComponent<ShootMovement>().SetDir(Vector3.up);
+                    bullet.layer = gameObject.layer;
+                }
+                else if (Input.GetButtonDown("Fire2"))
+                {
+                    //for (int i = 0; i < 5; i++)
+                    //{
+                    //    GameObject go = Instantiate(tamere, Position, angle) as GameObject;
+                    //    goList.Add(go);
+                    //    go.GetComponent<ShootMovement>().SetDir(new Vector3());
+                    //}
                     GameObject bullet1 = Instantiate(bullet, shooter.position, Quaternion.identity);
                     GameObject bullet2 = Instantiate(bullet, shooter.position, Quaternion.identity);
                     GameObject bullet3 = Instantiate(bullet, shooter.position, Quaternion.identity);
@@ -82,9 +102,9 @@ public class ShootScript : MonoBehaviour
                     bullet4.GetComponent<ShootMovement>().SetDir(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle7), Mathf.Cos(Mathf.Deg2Rad * angle7), 0));
                     bullet5.GetComponent<ShootMovement>().SetDir(Vector3.up);
                 }
-        }
+            }
 
-        if (gameObject.tag == "Enemy")
+            if (gameObject.tag == "Enemy")
             {
                 if (currentTimeBeforeEnemyShoot < timeBeforeEnemyShoot)
                 {
@@ -103,63 +123,64 @@ public class ShootScript : MonoBehaviour
 
             }
 
+
+            if (gameObject.tag == "Enemy1")
+            {
+                if (currentTimeBeforeEnemyShoot < timeBeforeEnemyShoot)
+                {
+                    currentTimeBeforeEnemyShoot += Time.deltaTime;
+                    Debug.Log("Ok");
+                }
+                else
+                {
+                    Debug.Log("Shoot");
+                    GameObject bullet1 = Instantiate(bullet, shooter.position, Quaternion.identity);
+                    GameObject bullet2 = Instantiate(bullet, shooter.position, Quaternion.identity);
+                    bullet.layer = gameObject.layer;
+                    bullet1.GetComponent<ShootMovement>().SetDir(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle2), -Mathf.Cos(Mathf.Deg2Rad * angle2), 0));
+                    bullet2.GetComponent<ShootMovement>().SetDir(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle3), -Mathf.Cos(Mathf.Deg2Rad * angle3), 0));
+                    currentTimeBeforeEnemyShoot = 0;
+
+                }
+            }
+
+            if (gameObject.tag == "Enemy2")
+            {
+                if (currentTimeBeforeEnemyShoot < timeBeforeEnemyShoot)
+                {
+                    currentTimeBeforeEnemyShoot += Time.deltaTime;
+                    Debug.Log("Ok");
+                }
+                else
+                {
+                    Debug.Log("Shoot");
+                    GameObject bullet1 = Instantiate(bullet, shooter.position, Quaternion.identity);
+                    GameObject bullet2 = Instantiate(bullet, shooter.position, Quaternion.identity);
+                    GameObject bullet3 = Instantiate(bullet, shooter.position, Quaternion.identity);
+                    GameObject bullet4 = Instantiate(bullet, shooter.position, Quaternion.identity);
+                    GameObject bullet5 = Instantiate(bullet, shooter.position, Quaternion.identity);
+
+                    bullet.layer = gameObject.layer;
+                    bullet1.GetComponent<ShootMovement>().SetDir(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle4), -Mathf.Cos(Mathf.Deg2Rad * angle4), 0));
+                    bullet2.GetComponent<ShootMovement>().SetDir(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle5), -Mathf.Cos(Mathf.Deg2Rad * angle5), 0));
+                    bullet3.GetComponent<ShootMovement>().SetDir(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle6), -Mathf.Cos(Mathf.Deg2Rad * angle6), 0));
+                    bullet4.GetComponent<ShootMovement>().SetDir(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle7), -Mathf.Cos(Mathf.Deg2Rad * angle7), 0));
+                    bullet5.GetComponent<ShootMovement>().SetDir(Vector3.down);
+                    currentTimeBeforeEnemyShoot = 0;
+
+                }
+            }
+
         }
 
 
-        if (gameObject.tag == "Enemy1")
-        {
-            if (currentTimeBeforeEnemyShoot < timeBeforeEnemyShoot)
-            {
-                currentTimeBeforeEnemyShoot += Time.deltaTime;
-                Debug.Log("Ok");
-            }
-            else
-            {
-                Debug.Log("Shoot");
-                GameObject bullet1 = Instantiate(bullet, shooter.position, Quaternion.identity);
-                GameObject bullet2 = Instantiate(bullet, shooter.position, Quaternion.identity);
-                bullet.layer = gameObject.layer;
-                bullet1.GetComponent<ShootMovement>().SetDir(new Vector3 (Mathf.Sin (Mathf.Deg2Rad * angle2) , -Mathf.Cos(Mathf.Deg2Rad * angle2) , 0));
-                bullet2.GetComponent<ShootMovement>().SetDir(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle3), -Mathf.Cos(Mathf.Deg2Rad * angle3), 0));
-                currentTimeBeforeEnemyShoot = 0;
-
-            }
-        }
-
-        if (gameObject.tag == "Enemy2")
-        {
-            if (currentTimeBeforeEnemyShoot < timeBeforeEnemyShoot)
-            {
-                currentTimeBeforeEnemyShoot += Time.deltaTime;
-                Debug.Log("Ok");
-            }
-            else
-            {
-                Debug.Log("Shoot");
-                GameObject bullet1 = Instantiate(bullet, shooter.position, Quaternion.identity);
-                GameObject bullet2 = Instantiate(bullet, shooter.position, Quaternion.identity);
-                GameObject bullet3 = Instantiate(bullet, shooter.position, Quaternion.identity);
-                GameObject bullet4 = Instantiate(bullet, shooter.position, Quaternion.identity);
-                GameObject bullet5 = Instantiate(bullet, shooter.position, Quaternion.identity);
-
-                bullet.layer = gameObject.layer;
-                bullet1.GetComponent<ShootMovement>().SetDir(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle4), -Mathf.Cos(Mathf.Deg2Rad * angle4), 0));
-                bullet2.GetComponent<ShootMovement>().SetDir(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle5), -Mathf.Cos(Mathf.Deg2Rad * angle5), 0));
-                bullet3.GetComponent<ShootMovement>().SetDir(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle6), -Mathf.Cos(Mathf.Deg2Rad * angle6), 0));
-                bullet4.GetComponent<ShootMovement>().SetDir(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle7), -Mathf.Cos(Mathf.Deg2Rad * angle7), 0));
-                bullet5.GetComponent<ShootMovement>().SetDir(Vector3.down);
-                currentTimeBeforeEnemyShoot = 0;
-
-            }
-        }
 
 
 
 
+  
 
-
-
-        }
+        
 }
 
 

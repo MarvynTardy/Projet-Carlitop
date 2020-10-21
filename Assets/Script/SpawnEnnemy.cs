@@ -25,8 +25,8 @@ public class SpawnEnnemy : MonoBehaviour
 
     void Spawn()
     {
-        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0.1f, 0));
-        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(0.9f, 1));
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0.05f, 0));
+        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(0.95f, 1));
 
         whoSpawn = Random.Range(1, 4);
         switch (whoSpawn)

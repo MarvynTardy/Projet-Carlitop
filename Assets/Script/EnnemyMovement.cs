@@ -25,7 +25,7 @@ public class EnnemyMovement : MonoBehaviour
 
         transform.position = position;
 
-        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0.1f));
 
         if (transform.position.y < min.y)
         {
