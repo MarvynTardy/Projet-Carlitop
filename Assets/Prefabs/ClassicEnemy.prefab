@@ -78,6 +78,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &2230539981407463472
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -167,8 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 9042454891861972262, guid: 9509cc75c120ff049840484788e052b6, type: 3}
-  player: {fileID: 0}
-  enemy: {fileID: 8109074806800364956}
+  shooter: {fileID: 8109074806800364956}
   mask:
     serializedVersion: 2
     m_Bits: 256
