@@ -36,12 +36,14 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(movementY);
 
 
-        if(Input.GetKeyDown(KeyCode.S))
-        {
+        //foreach (Collider2D collision in Physics2D.OverlapCircleAll(transform.position, 0.1f, mask))
+        //{
+        //    if (collision.CompareTag("player"))
+        //    {
+        //        GetComponent<HealthComponent>().TakeDamage(30);
+        //    }
             
-            
-           GetComponent<HealthComponent>().TakeDamage(30);
-            
+          
 
 
 
@@ -50,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        }
+        //}
     }
 }
 

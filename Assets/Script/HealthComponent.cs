@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
+   
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
@@ -24,7 +25,13 @@ public class HealthComponent : MonoBehaviour
      public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        
+        if (gameObject.GetComponent<HealthBar>() != null)
+        {
+            healthBar.SetHealth(currentHealth);
+        }
+        
+
     }
 
     void Heal(int heal)

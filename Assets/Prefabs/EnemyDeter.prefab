@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3227567379156302620}
   - component: {fileID: -4676394368642373336}
   - component: {fileID: -5433490712381877969}
-  m_Layer: 0
+  - component: {fileID: 8878423915361956047}
+  m_Layer: 9
   m_Name: EnemyDeter
   m_TagString: Enemy2
   m_Icon: {fileID: 0}
@@ -95,7 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e6eac3a7c5bc647ad0c52b17a52553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &-5433490712381877969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,8 +113,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 9042454891861972262, guid: 9509cc75c120ff049840484788e052b6, type: 3}
-  player: {fileID: 0}
-  enemy: {fileID: 6823246766314760622}
+  shooter: {fileID: 6823246766314760622}
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
+--- !u!114 &8878423915361956047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025250194237881232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30825f8f855becc408ba80c333b92e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}

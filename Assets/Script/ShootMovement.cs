@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShootMovement : MonoBehaviour
 {
     
-    public float speed = 0f;
+    float speed = 5f;
     Transform bulletTransform;
     bool isMoving;
 
