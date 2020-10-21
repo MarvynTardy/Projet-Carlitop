@@ -11,8 +11,8 @@ public class ShootScript : MonoBehaviour
     private Transform shooter;
    
     
-    private float currentTimeBeforeEnemyShoot = 0f;
-    private float timeBeforeEnemyShoot = 1.0f;
+    private float currentTimeBeforeEnemyShoot = 1.5f;
+    private float timeBeforeEnemyShoot = 2f;
 
     public LayerMask mask;
 
@@ -25,7 +25,7 @@ public class ShootScript : MonoBehaviour
     float angle4 = 10f;
     float angle5 = -10f;
     float angle6 = 5f;
-    float angle7 = - 5f;
+    float angle7 = -5f;
 
 
 
