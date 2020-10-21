@@ -51,8 +51,8 @@ public class ShootScript : MonoBehaviour
 
             if (colision.CompareTag("Bullet"))
             {
-               GetComponent<HealthComponent>().TakeDamage(20);
-
+                colision.tag = "Untagged";
+                MakeDamage();
                 Destroy(colision.gameObject);
             }
 
@@ -63,7 +63,10 @@ public class ShootScript : MonoBehaviour
 
       
     
-    
+        void MakeDamage()
+        {
+          GetComponent<HealthComponent>().TakeDamage(20);
+        }
     
     
     

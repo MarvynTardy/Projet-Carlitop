@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3227567379156302620}
   - component: {fileID: -4676394368642373336}
   - component: {fileID: -5433490712381877969}
+  - component: {fileID: 8878423915361956047}
   m_Layer: 9
   m_Name: EnemyDeter
   m_TagString: Enemy2
@@ -116,3 +117,18 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &8878423915361956047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025250194237881232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30825f8f855becc408ba80c333b92e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
