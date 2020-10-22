@@ -6,6 +6,8 @@ public class PlayArea : MonoBehaviour
 {
     public Camera camera;
     public float offsetLimitZone = 1;
+    float offsetLimitZone2 = 2;
+    float offsetLimitZone3 = 2.5f;
 
     private void Update()
     {
@@ -19,14 +21,14 @@ public class PlayArea : MonoBehaviour
             transform.position = new Vector3(camera.orthographicSize * 5 / 4 - offsetLimitZone, transform.position.y, transform.position.z);
         }
 
-        if (transform.position.y < -camera.orthographicSize * 5 / 4 + offsetLimitZone)
+        if (transform.position.y < -camera.orthographicSize * 5 / 4 + offsetLimitZone3)
         {
-            transform.position = new Vector3(transform.position.x, -camera.orthographicSize * 5 / 4 + ( offsetLimitZone + 1 ), transform.position.z);
+            transform.position = new Vector3(transform.position.x, -camera.orthographicSize * 5 / 4 + offsetLimitZone3, transform.position.z);
         }
 
-        if (transform.position.y > camera.orthographicSize * 5 / 4 - offsetLimitZone)
+        if (transform.position.y > camera.orthographicSize * 5 / 4 - offsetLimitZone2)
         {
-            transform.position = new Vector3(transform.position.x, camera.orthographicSize * 5 / 4 - (offsetLimitZone + 1), transform.position.z);
+            transform.position = new Vector3(transform.position.x, camera.orthographicSize * 5 / 4 - offsetLimitZone2 , transform.position.z);
         }
 
     }
